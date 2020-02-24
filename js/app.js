@@ -1,3 +1,5 @@
+const ui=new interfaz()
+
 const processForm=(e)=>{
     e.preventDefault()
     let selectedCoin=document.getElementById('moneda').value
@@ -5,6 +7,7 @@ const processForm=(e)=>{
 
     if (selectedCoin==='' || selectedCriptoCoin==='') {
         console.log('You must set value for both select items')
+        ui.showMessage('You must set value for both select items','alert bg-danger text-center')
     } else {
         console.log('ok!!')
     }
