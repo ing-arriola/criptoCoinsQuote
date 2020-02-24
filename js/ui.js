@@ -1,4 +1,15 @@
 class interfaz{
+    constructor(){
+        this.init()
+    }
+    init(){
+        this.builSelect()
+    }
+    builSelect(){
+        coinsAPI.getcoinsFromAPI()
+            .then(coins=>console.log(coins))
+    }
+
     showMessage(msg,classes){
         const div=document.createElement('div')
         div.className=classes

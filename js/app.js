@@ -1,4 +1,6 @@
-const ui=new interfaz()
+const coinsAPI=new API()
+const ui=new interfaz('myapikey...XD')
+
 
 const processForm=(e)=>{
     e.preventDefault()
