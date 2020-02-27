@@ -6,7 +6,7 @@ class API{
         const url=`https://min-api.cryptocompare.com/data/all/coinlist?api_key=${this.apikey}`
         const connection= await fetch(url)
         const coins=await connection.json()
-        console.log(coins)
+        //console.log(coins)
         return coins 
     } 
 }

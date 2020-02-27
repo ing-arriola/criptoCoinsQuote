@@ -7,7 +7,18 @@ class interfaz{
     }
     builSelect(){
         coinsAPI.getcoinsFromAPI()
-            .then(coins=>console.log(coins))
+            .then(coins=>{
+                //Getting the select element from the DOM in order to attach the options inside of it
+                const optionsToShow=document.getElementById('criptomoneda')
+                //Go through the results of the API    
+                for (const [key,value] of Object.entries(coins.Data)) {        
+                        let option=document.createElement('option')
+                        option.value=value.Symbol
+                        option.appendChild(document.createTextNode(value.CoinName))
+                        optionsToShow.appendChild(option)  
+                    }
+                }
+            )
     }
 
     showMessage(msg,classes){

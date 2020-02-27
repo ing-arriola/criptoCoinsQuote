@@ -1,5 +1,5 @@
 const coinsAPI=new API()
-const ui=new interfaz('myapikey...XD')
+const ui=new interfaz('*^ry%u$L%YRm94X2MfX$wCrVw8!6*%^v9Vv')
 
 
 const processForm=(e)=>{
