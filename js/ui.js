@@ -36,6 +36,7 @@ class interfaz{
 
     showResult(result,cripto,real){
         const resultData=result[cripto][real]
+        let date=new Date(resultData.LASTUPDATE*1000)
         console.log(result[cripto][real])
         //Build result card
         let resultCard=`
@@ -45,6 +46,12 @@ class interfaz{
                     <p>
                         El precio de ${resultData.FROMSYMBOL} en ${resultData.TOSYMBOL} es: ${resultData.PRICE.toFixed(2)}
                     <p>
+                    <p>
+                        Porcentaje de cambio diario: %${resultData.CHANGEPCTDAY.toFixed(2)}
+                    </p>
+                    <p>
+                        Ultima actualizacion: ${date.toUTCString()}
+                    </p>
                 </div>    
             </div>
         `

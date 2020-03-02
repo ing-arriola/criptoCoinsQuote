@@ -13,7 +13,13 @@ const processForm=(e)=>{
     } else {
         coinsAPI.getValueOfCriptoCoint(selectedCriptoCoin,selectedCoin)
             .then(data=>{
-                ui.showResult(data.RAW,selectedCriptoCoin,selectedCoin)
+                try {
+                    ui.showResult(data.RAW,selectedCriptoCoin,selectedCoin)    
+                } catch (error) {
+                    alert('There is no data available of the selected cripto coin')
+                    console.log(error)
+                }
+                
             })
     }
 }
