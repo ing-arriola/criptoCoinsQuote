@@ -23,6 +23,7 @@ class interfaz{
     }
 
     showMessage(msg,classes){
+
         const div=document.createElement('div')
         div.className=classes
         div.appendChild(document.createTextNode(msg))
@@ -35,6 +36,10 @@ class interfaz{
     }
 
     showResult(result,cripto,real){
+        const previousResult=document.querySelector('#resultado > div')
+        if (previousResult) {
+            previousResult.remove()
+        }
         const resultData=result[cripto][real]
         let date=new Date(resultData.LASTUPDATE*1000)
         console.log(result[cripto][real])
@@ -43,20 +48,27 @@ class interfaz{
             <div class='card bg-warning>
                 <div class='card-body text-light'>
                     <h2 class='card-title'>Resultado</h2>
-                    <p>
-                        El precio de ${resultData.FROMSYMBOL} en ${resultData.TOSYMBOL} es: ${resultData.PRICE.toFixed(2)}
-                    <p>
-                    <p>
-                        Porcentaje de cambio diario: %${resultData.CHANGEPCTDAY.toFixed(2)}
-                    </p>
-                    <p>
-                        Ultima actualizacion: ${date.toUTCString()}
-                    </p>
+                    <p>El precio de ${resultData.FROMSYMBOL} en ${resultData.TOSYMBOL} es: ${resultData.PRICE.toFixed(2)}<br>
+                    Porcentaje de cambio diario: %${resultData.CHANGEPCTDAY.toFixed(2)}<br>
+                    Ultima actualizacion: ${date.toUTCString()}<br>
+                    </>
                 </div>    
             </div>
         `
+        
         const sectionToShowResult=document.getElementById('resultado')
-        sectionToShowResult.innerHTML=resultCard
+        this.ShowOrHideSpinner('block')
 
+        setTimeout(() => {
+            this.ShowOrHideSpinner('none')
+            sectionToShowResult.innerHTML=resultCard    
+        }, 2000);
+        
+
+    }
+
+    ShowOrHideSpinner(view){
+        const spinnerContainer=document.querySelector('.contenido-spinner')
+        spinnerContainer.style.display=view
     }
 }
