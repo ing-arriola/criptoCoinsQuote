@@ -35,9 +35,21 @@ class interfaz{
     }
 
     showResult(result,cripto,real){
-        //let value=result[cripto][real].PRICE
-        console.log(result[cripto][real].PRICE)
+        const resultData=result[cripto][real]
+        console.log(result[cripto][real])
+        //Build result card
+        let resultCard=`
+            <div class='card bg-warning>
+                <div class='card-body text-light'>
+                    <h2 class='card-title'>Resultado</h2>
+                    <p>
+                        El precio de ${resultData.FROMSYMBOL} en ${resultData.TOSYMBOL} es: ${resultData.PRICE.toFixed(2)}
+                    <p>
+                </div>    
+            </div>
+        `
         const sectionToShowResult=document.getElementById('resultado')
+        sectionToShowResult.innerHTML=resultCard
 
     }
 }
