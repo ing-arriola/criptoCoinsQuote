@@ -33,4 +33,11 @@ class interfaz{
             sectionToShowMsg.remove()
         }, 2000);
     }
+
+    showResult(result,cripto,real){
+        //let value=result[cripto][real].PRICE
+        console.log(result[cripto][real].PRICE)
+        const sectionToShowResult=document.getElementById('resultado')
+
+    }
 }

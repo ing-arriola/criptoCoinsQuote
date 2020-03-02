@@ -13,7 +13,7 @@ const processForm=(e)=>{
     } else {
         coinsAPI.getValueOfCriptoCoint(selectedCriptoCoin,selectedCoin)
             .then(data=>{
-                console.log(data)
+                ui.showResult(data.RAW,selectedCriptoCoin,selectedCoin)
             })
     }
 }
