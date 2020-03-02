@@ -1,5 +1,5 @@
 const coinsAPI=new API()
-const ui=new interfaz('pone la api key')
+const ui=new interfaz('*^ry%u$L%YRm94X2MfX$wCrVw8!6*%^v9Vv')
 
 
 const processForm=(e)=>{
@@ -11,7 +11,10 @@ const processForm=(e)=>{
         console.log('You must set value for both select items')
         ui.showMessage('You must set value for both select items','alert bg-danger text-center')
     } else {
-        console.log('ok!!')
+        coinsAPI.getValueOfCriptoCoint(selectedCriptoCoin,selectedCoin)
+            .then(data=>{
+                console.log(data)
+            })
     }
 }
 
