@@ -36,6 +36,8 @@ class interfaz{
     }
 
     showResult(result,cripto,real){
+        //This determines if there is some previus result... because it needs to be removed from the DOM
+        //prevoous to append a new result
         const previousResult=document.querySelector('#resultado > div')
         if (previousResult) {
             previousResult.remove()
@@ -50,7 +52,7 @@ class interfaz{
                     <h2 class='card-title'>Resultado</h2>
                     <p>El precio de ${resultData.FROMSYMBOL} en ${resultData.TOSYMBOL} es: ${resultData.PRICE.toFixed(2)}<br>
                     Porcentaje de cambio diario: %${resultData.CHANGEPCTDAY.toFixed(2)}<br>
-                    Ultima actualizacion: ${date.toUTCString()}<br>
+                    Ultima actualizacion: ${date.toUTCString()} <br>
                     </>
                 </div>    
             </div>
@@ -58,7 +60,7 @@ class interfaz{
         
         const sectionToShowResult=document.getElementById('resultado')
         this.ShowOrHideSpinner('block')
-
+        //Due to the really fast answer of API, we add a pause of 2 seconds to be able to show the sppinner 
         setTimeout(() => {
             this.ShowOrHideSpinner('none')
             sectionToShowResult.innerHTML=resultCard    
@@ -67,6 +69,7 @@ class interfaz{
 
     }
 
+    //This function shows or hide the sppinner depending of the value passed to the view
     ShowOrHideSpinner(view){
         const spinnerContainer=document.querySelector('.contenido-spinner')
         spinnerContainer.style.display=view

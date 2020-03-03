@@ -13,6 +13,8 @@ const processForm=(e)=>{
     } else {
         coinsAPI.getValueOfCriptoCoint(selectedCriptoCoin,selectedCoin)
             .then(data=>{
+                //Here there is necessary to have a try catch because there are not information of all
+                //the cripto coins, so if one returns a void object we need to tell it to the user
                 try {
                     ui.showResult(data.RAW,selectedCriptoCoin,selectedCoin)    
                 } catch (error) {
